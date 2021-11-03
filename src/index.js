@@ -1,14 +1,6 @@
-import MovieDetailsPage from './pages/movieDetailsPage'
 import React from "react";
 import ReactDOM from "react-dom";
 import HomePage from "./pages/homePage";
-
-const images = [
-    "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
-    "/v1QQKq8M0fWxMgSdGOX1aCv8qMB.jpg",
-    "/2iGN0aKHJYD0xQydlfuCUAcgNbO.jpg",
-    "/rjBwhsOzHKUw2NIOrE7aMqjfe6s.jpg",
-  ]
 
 const sample = {
   adult: false,
@@ -94,9 +86,9 @@ const sample = {
 const movies = [sample, sample, sample, sample, sample, sample, sample];
 
 const App = () => {
-    return (
-        <MovieDetailsPage movie={sample} images={images} />
-        );
-  };
+  return (
+      <HomePage movies={movies} />
+  );
+};
 
 ReactDOM.render(<App />, document.getElementById("root"));
