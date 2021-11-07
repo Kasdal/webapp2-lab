@@ -7,13 +7,26 @@ import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 360000,
+      refetchInterval: 360000, 
+      refetchOnWindowFocus: false
+    },
+  },
+});
+
 
 const App = () => {
   return (
-    <>
-    <SiteHeader />      {/* New Header  */}
-    <BrowserRouter>
-        <Switch>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+      <SiteHeader />      {/* New Header  */}
+          <Switch>
         <Route path="/reviews/:id" component={MovieReviewPage} />
         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
@@ -21,8 +34,9 @@ const App = () => {
         <Route exact path="/" component={HomePage} />
         <Redirect from="*" to="/" />
       </Switch>
-    </BrowserRouter>
-    </>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };
 
