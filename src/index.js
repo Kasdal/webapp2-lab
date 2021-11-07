@@ -10,9 +10,10 @@ import SiteHeader from './components/siteHeader'
 
 const App = () => {
   return (
-      <BrowserRouter>
-          <SiteHeader />      {/* New Header  */}
-          <Switch>
+    <>
+    <SiteHeader />      {/* New Header  */}
+    <BrowserRouter>
+        <Switch>
         <Route path="/reviews/:id" component={MovieReviewPage} />
         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
@@ -21,6 +22,7 @@ const App = () => {
         <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>
+    </>
   );
 };
 
