@@ -12,6 +12,7 @@ import Menu from "@material-ui/core/Menu";
 import { withRouter } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SiteHeader = ( { history }) => {
+  const {loginWithRedirect, logout, user, isLoading} = useAuth0();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -43,6 +45,22 @@ const SiteHeader = ( { history }) => {
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  //create a login button if user is not logged in
+  const loginButton = (
+    <Button color="inherit" onClick={() => loginWithRedirect({})}>
+      Login
+    </Button>
+  );
+
+  //create a logout button if user is logged in
+  const logoutButton = (
+    <Button color="inherit" onClick={() => logout()}>
+      Logout
+    </Button>
+  );
+  
+
 
   return (
     <>
