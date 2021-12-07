@@ -13,6 +13,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TopRatedPage from "./pages/topRatedPage";
 import PopularPage from "./pages/popularPage";
+import ActorsPage from "./pages/actorsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +40,7 @@ const App = () => {
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route exact path="/movies/top_rated" component={TopRatedPage} />
         <Route exact path="/movies/popular" component={PopularPage} />
+        <Route exact path="/actors" component={ActorsPage} />
         <Route path="/movies/:id" component={MoviePage} />
         <Route exact path="/" component={HomePage} />
         <Redirect from="*" to="/" />
