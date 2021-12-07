@@ -14,7 +14,6 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TopRatedPage from "./pages/topRatedPage";
 import PopularPage from "./pages/popularPage";
 import ActorsPage from "./pages/actorsPage";
-import Auth0ProviderWithHistory from "./auth0Provider";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,7 +28,6 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <Auth0ProviderWithHistory>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
@@ -51,7 +49,6 @@ const App = () => {
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-    </Auth0ProviderWithHistory>
   );
 };
 
