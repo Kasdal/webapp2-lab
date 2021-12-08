@@ -21,8 +21,9 @@ const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
 }));
 
-const SiteHeader = ( { history }) => {
+const SiteHeader = ( { history }, props) => {
   const classes = useStyles();
+  const[auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
@@ -44,8 +45,11 @@ const SiteHeader = ( { history }) => {
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
-
+  const handleClose = () => {
+    localStorage.removeItem('user');
+    props.setUserState();
+    setAnchorEl(null);
+  }
 
   return (
     <>
@@ -55,57 +59,62 @@ const SiteHeader = ( { history }) => {
             TMDB Client
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            All you ever wanted to know about Movies!
+            The Movie Heaven!
           </Typography>
-            {isMobile ? (
-              <>
-                <IconButton
-                  aria-label="menu"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleMenu}
-                  color="inherit"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={open}
-                  onClose={() => setAnchorEl(null)}
-                >
+          {auth && (
+            <>
+              {isMobile ? (
+                <>
+                  <IconButton
+                    aria-label="menu"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={handleMenu}
+                    color="inherit"
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                  <Menu
+                    id="menu-appbar"
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={open}
+                    onClose={handleClose}
+                  >
+                    {menuOptions.map((opt) => (
+                      <MenuItem
+                        key={opt.label}
+                        onClick={() => handleMenuSelect(opt.path)}
+                      >
+                        {opt.label}
+                      </MenuItem>
+                    ))}
+                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  </Menu>
+                </>
+              ) : (
+                <>
                   {menuOptions.map((opt) => (
-                    <MenuItem
+                    <Button
                       key={opt.label}
+                      color="inherit"
                       onClick={() => handleMenuSelect(opt.path)}
                     >
                       {opt.label}
-                    </MenuItem>
+                    </Button>
                   ))}
-                </Menu>
-              </>
-            ) : (
-              <>
-                {menuOptions.map((opt) => (
-                  <Button
-                    key={opt.label}
-                    color="inherit"
-                    onClick={() => handleMenuSelect(opt.path)}
-                  >
-                    {opt.label}
-                  </Button>
-                ))}
-              </>
-            )}
+                </>
+              )}
+            </>
+          )}
         </Toolbar>
       </AppBar>
       <div className={classes.offset} />
