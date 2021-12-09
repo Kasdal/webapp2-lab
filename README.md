@@ -4,7 +4,7 @@ Name: [Milan Ples]
 
 ## Overview.
 
-Movie App created using React. It allows the users to search and filter movies.
+Movie App created using React. It allows the users to search and filter movies by genre.
 Movies can also be added into favorites. All the information about the movies is
 pulled from TMDB using their public API. 
 
@@ -25,7 +25,7 @@ Open the working directory and run
 ```
 npm install
 ```
-Register on TMDB and get the API credentials.
+Register on TMDB and get the API credentials.[here](https://firebase.google.com/)
 On TMDB go to Settings->API->Create ->Request API ->Developer -> And enter required data.
 create .env file in your project and add the TMDB API key 
 ```
@@ -34,12 +34,20 @@ REACT_APP_TMDB_KEY=  API key value
 
 ## API endpoints.
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
+GET
+/movie/top_rated
+Get the top rated movies on TMDB.
+**Get Top Rated**: `https://api.themoviedb.org/3/movie/top_rated?api_key=<<api_key>>&language=en-US&page=1`
 
-e.g.
-+ Discover list of movies - discover/movie
-+ Movie details - movie/:id
-+ Movie genres = /genre/movie/list
+GET
+/person/popular
+Get the list of popular people on TMDB. This list updates daily.
+**Get Actors** `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+
+GET
+/movie/upcoming
+Get a list of upcoming movies in theatres.
+**Get Upcoming** `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
 
 ## App Design.
 
@@ -62,15 +70,18 @@ e.g.
 
 ### Routing.
 
-[ List the __new routes__ supported by your app and state the associated page.]
-
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
-
-[If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
++ GET /home - displays all movies.
++ GET /login - login to firebase
++ GET /signup - sign up for Firebase 
++ GET /reviews/:id - displays a particular review.
++ GET /movies/favourites - displaying selected user favourites
++ GET /movies/upcoming - display upcoming movies
++ GET /movies/topRatedMovies - displays top rated movies
++ GET /movies/:id - displays a particular movie
++ GET /movies/:id - displays a particular actor
++ GET /actor - displays all popular actors 
 
 ## Independent learning (If relevant).
 
-[ Itemize the technologies/techniques you researched independently and adopted in your project, i.e. aspects not covered in the lectures/labs. Include the source code filenames that illustrate these (we do not require code excerpts) and provide references to the online resources that helped you (articles/blogs).
+**Firebase Authentication** Enables security for the app. Did not manage to get it full working. 
+**Pagination** Enables for data to be cached locally and reduces a strain on the server. Works properly.
