@@ -11,11 +11,11 @@ pulled from TMDB using their public API.
 ### Features.
 [ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
  
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
++ Top Rated movies page
++ Popular page
++ Actors page
++ Firebase Auth
++ Pagination home page and upcoming
 
 ## Setup requirements.
 Running this project:
