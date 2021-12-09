@@ -74,4 +74,5 @@ Get a list of upcoming movies in theatres.
 ## Independent learning (If relevant).
 
 **Firebase Authentication** Enables security for the app. Did not manage to get it full working. 
+##
 **Pagination** Enables for data to be cached locally and reduces a strain on the server. Works properly.
