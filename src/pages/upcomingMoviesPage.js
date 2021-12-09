@@ -4,10 +4,16 @@ import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getUpcomingMovies} from "../api/tmdb-api"
 import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
+import Pagination from "@material-ui/lab/Pagination";
+import SiteHeader from "../components/siteHeader";
 
 const UpcomingMoviesPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('upComingMovie', getUpcomingMovies)
-  
+  const [page, setPage] = React.useState(1);
+  const {  data, error, isLoading, isError }  = useQuery(['upComingMovie',{page : page}], getUpcomingMovies)
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
   if (isLoading) {
     return <Spinner />
   }
@@ -20,8 +26,10 @@ const UpcomingMoviesPage = (props) => {
 
   const mustWatch = movies.filter(m => m.mustWatch)
   localStorage.setItem('mustWatch', JSON.stringify(mustWatch))
-  const addToMustWatch = (movieId) => true 
+ 
    return (
+    <>
+    <SiteHeader/>
       <PageTemplate
         title="Upcoming Movies"
         movies={movies}
@@ -29,7 +37,19 @@ const UpcomingMoviesPage = (props) => {
           return <AddToMustWatchIcon movie={movie} />
         }}
       />
+              <Pagination count={data.total_pages} style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} page={page} onChange={handleChange} color="secondary" />
+      </>
   );
 };
 
 export default UpcomingMoviesPage;
+
+
+
+
+
+
+
+
+
+

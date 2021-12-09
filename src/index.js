@@ -38,14 +38,14 @@ const App = () => {
             {" "}
             <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={AuthenticationPage} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
         <Route exact path="/actors" component={ActorsPage} />
         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route exact path="/movies/top_rated" component={TopRatedPage} />
         <Route exact path="/movies/popular" component={PopularPage} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/" component={AuthenticationPage} />
         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
         <Route path="/reviews/:id" component={MovieReviewPage} />
         <Route path="/movies/:id" component={MoviePage} />

@@ -13,18 +13,19 @@ export const getMovies = () => {
 };
 
 export const getUpcomingMovies = (args) => {
-  //console.log(args)
+  const [, pagePart] = args.queryKey;
+  const { page } = pagePart;
   return fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
   ).then((response) => {
     if (!response.ok) {
       throw new Error(response.json().message);
     }
     return response.json();
   })
-  .catch((error) => {
-    throw error
-  });
+    .catch((error) => {
+      throw error
+    });
 };
   
   export const getMovie = (args) => {
