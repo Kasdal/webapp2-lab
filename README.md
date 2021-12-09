@@ -50,22 +50,12 @@ Get a list of upcoming movies in theatres.
 
 ## App Design.
 
+![Screenshot_26](https://user-images.githubusercontent.com/36207533/145411474-0380542a-a6a0-4462-9419-02c778af518d.png)
+![Screenshot_27](https://user-images.githubusercontent.com/36207533/145411483-7138a0c4-d8e0-4a19-a914-a086037625d4.png)
+![Screenshot_28](https://user-images.githubusercontent.com/36207533/145411490-14f20722-ae9f-4906-970b-986803a02f39.png)
+
 ### Component catalogue.
 
-[ Insert a screenshot from the Storybook UI that lists all the stories for the app's components, and highlight those relating to your __new/modified components__ - see the example screenshot below.] .......
-
-![](./images/storybook.png)
-### UI Design.
-
-[ Insert screenshots of the __new/modified app pages__ you developed (and modified existing pages), Include an appropriate caption for each one (see example below).
-
-![ ](./images/view.png)
-
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
-
-![ ](./images/view.png)
-
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
 
 ### Routing.
 
