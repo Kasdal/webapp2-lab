@@ -30,6 +30,10 @@ create .env file in your project and add the TMDB API key
 ```
 REACT_APP_TMDB_KEY=  API key value
 ```
+Runing the app
+```
+npm start
+```
 
 ## API endpoints.
 
