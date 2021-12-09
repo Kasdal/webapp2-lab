@@ -34,6 +34,9 @@ Runing the app
 ```
 npm start
 ```
+Then you can access your app on 
+```http://localhost:3000/
+```
 
 ## API endpoints.
 
