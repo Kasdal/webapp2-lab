@@ -55,6 +55,7 @@ Get a list of upcoming movies in theatres.
 ![Screenshot_28](https://user-images.githubusercontent.com/36207533/145411490-14f20722-ae9f-4906-970b-986803a02f39.png)
 
 ### Component catalogue.
+![Screenshot_29](https://user-images.githubusercontent.com/36207533/145411750-b737f9d0-860b-42a3-98a4-b943b7efec89.png)
 
 
 ### Routing.
