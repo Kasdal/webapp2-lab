@@ -9,7 +9,6 @@ Movies can also be added into favorites. All the information about the movies is
 pulled from TMDB using their public API. 
 
 ### Features.
-[ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
  
 + Top Rated movies page
 + Popular page
