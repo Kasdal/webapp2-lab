@@ -44,16 +44,19 @@ http://localhost:3000/
 GET
 /movie/top_rated
 Get the top rated movies on TMDB.
+
 **Get Top Rated**: `https://api.themoviedb.org/3/movie/top_rated?api_key=<<api_key>>&language=en-US&page=1`
 
 GET
 /person/popular
 Get the list of popular people on TMDB. This list updates daily.
+
 **Get Actors** `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
 
 GET
 /movie/upcoming
 Get a list of upcoming movies in theatres.
+
 **Get Upcoming** `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
 
 ## App Design.
